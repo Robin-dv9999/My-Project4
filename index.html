@@ -3,70 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Panduan Melepas Penutup Kopling</title>
+    <title>Cyber Hub | Robin</title>
     <link rel="stylesheet" href="style.css">
+    <!-- Font Futuristik Google -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="cv-container">
-        <!-- Header / Judul -->
-        <header class="cv-header">
-            <div class="profile-img-box">
-                <img src="https://picsum.photos/200/200" alt="Mekanik Ilustrasi">
+
+    <!-- Latar Belakang Garis Grid Futuristik -->
+    <div class="bg-grid"></div>
+
+    <main class="card-container">
+        <!-- Foto Profil dengan Ring Cahaya -->
+        <div class="avatar-box">
+            <img src="https://picsum.photos/300/300" alt="Cyber Avatar" class="avatar-img">
+            <div class="online-badge"></div>
+        </div>
+
+        <!-- Identitas Utama -->
+        <h1 class="glitch-text" data-text="ROBIN DV">ROBIN DV</h1>
+        <p class="tagline">Mobile Developer & Programing Enthusiast</p>
+
+        <!-- Baris Status Sistem -->
+        <div class="status-bar">
+            <div class="status-item">
+                <span class="label">STATUS</span>
+                <span class="value active">ONLINE</span>
             </div>
-            <div class="profile-info">
-                <h1>Panduan Servis Resmi</h1>
-                <p class="subtitle">Melepas Penutup Kopling</p>
-                <p class="contact-info">Berdasarkan Buku Manual Servis</p>
+            <div class="status-item">
+                <span class="label">PROJECTS</span>
+                <span class="value">READY</span>
             </div>
-        </header>
+        </div>
 
-        <!-- 1. Komponen yang Dilepas -->
-        <section class="cv-section">
-            <h2 class="section-title">Komponen yang Dilepas</h2>
-            <table class="data-table">
-                <tr><td><strong>Oli Mesin</strong></td><td>: Kuras oli mesin (lihat bagian Mengganti Oli Mesin)</td></tr>
-                <tr><td><strong>Tuas Starter</strong></td><td>: Jumlah: 1</td></tr>
-                <tr><td><strong>Penutup Filter Oli</strong></td><td>: Jumlah: 1</td></tr>
-                <tr><td><strong>Filter Oli</strong></td><td>: Jumlah: 1</td></tr>
-                <tr><td><strong>Stopper Tuas Starter</strong></td><td>: Jumlah: 1</td></tr>
-                <tr><td><strong>Penutup Kopling</strong></td><td>: Jumlah: 1</td></tr>
-                <tr><td><strong>Gasket Penutup Kopling</strong></td><td>: Jumlah: 1 (Baru)</td></tr>
-                <tr><td><strong>Pin Dowel</strong></td><td>: Jumlah: 2</td></tr>
-                <tr><td><strong>Seal Oli</strong></td><td>: Jumlah: 2 (Baru)</td></tr>
-            </table>
-        </section>
+        <!-- Tombol Link Interaktif -->
+        <div class="links-group">
+            <a href="https://robin-dv9999.github.io/Website-Pertama/" class="cyber-btn" target="_blank">
+                <span class="btn-text">🛠️ PANDUAN APA AJA</span>
+                <span class="btn-glitch"></span>
+            </a>
 
-        <!-- 2. Alat dan Bahan -->
-        <section class="cv-section">
-            <h2 class="section-title">Alat dan Bahan</h2>
-            <ul class="cv-list">
-                <li>Kunci T / Kunci Sok (sesuai ukuran baut penutup kopling dan tuas starter)</li>
-                <li>Wadah penampung oli bekas dan oli mesin baru</li>
-                <li>Gasket penutup kopling baru</li>
-                <li>Seal oli baru</li>
-                <li>Kain lap atau majun pembersih</li>
-            </ul>
-        </section>
+            <a href="#" class="cyber-btn" onclick="showPopup('Python & Web Application Development')">
+                <span class="btn-text">💻 TECH STACK & SKILLS</span>
+                <span class="btn-glitch"></span>
+            </a>
 
-        <!-- 3. Langkah Pekerjaan -->
-        <section class="cv-section">
-            <h2 class="section-title">Langkah Pekerjaan</h2>
-            <ul class="cv-list">
-                <li>Keluarkan seluruh oli mesin terlebih dahulu dari dalam mesin.</li>
-                <li>Copot tuas starter, penutup filter oli, filter oli, serta stopper tuas starter.</li>
-                <li>Lepaskan baut-baut pengikat penutup kopling, lalu tarik perlahan penutup kopling dari blok mesin.</li>
-                <li>Ambil gasket penutup kopling lama dan pin dowel.</li>
-                <li>Lepaskan seal oli yang melekat pada komponen jika ingin dilakukan penggantian.</li>
-            </ul>
-        </section>
+            <a href="https://github.com/robin-dv9999" class="cyber-btn highlight" target="_blank">
+                <span class="btn-text">🚀 GITHUB REPOSITORY</span>
+                <span class="btn-glitch"></span>
+            </a>
+        </div>
 
-        <!-- 4. Kesimpulan -->
-        <section class="cv-section">
-            <h2 class="section-title">Kesimpulan</h2>
-            <p class="conclusion-text">
-                Proses pelepasan penutup kopling harus dilakukan secara berurutan mulai dari pengurasan oli hingga pelepasan komponen luar seperti filter dan tuas starter. Untuk pemasangan kembali, gunakan prinsip kebalikan dari prosedur melepas ini, serta selalu ganti komponen sekali pakai seperti gasket dan seal oli dengan yang baru agar tidak terjadi kebocoran.
-            </p>
-        </section>
-    </div>
+        <!-- Footer Terminal -->
+        <footer class="terminal-footer">
+            <p>> System initialized... Ready for action.</p>
+        </footer>
+    </main>
+
+    <script>
+        function showPopup(text) {
+            alert('SYSTEM INFO:\n' + text);
+        }
+    </script>
 </body>
 </html>

@@ -3,67 +3,175 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cyber Hub | Robin</title>
+    <title>Underworld Syndicate // Robin-DV</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800;900&family=Plus+Jakarta+Sans:wght@400;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <!-- Font Futuristik Google -->
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <!-- Latar Belakang Garis Grid Futuristik -->
-    <div class="bg-grid"></div>
-
-    <main class="card-container">
-        <!-- Foto Profil dengan Ring Cahaya -->
-        <div class="avatar-box">
-            <img src="https://picsum.photos/300/300" alt="Cyber Avatar" class="avatar-img">
-            <div class="online-badge"></div>
-        </div>
-
-        <!-- Identitas Utama -->
-        <h1 class="glitch-text" data-text="ROBIN DV">ROBIN DV</h1>
-        <p class="tagline">Mobile Developer & Programing Enthusiast</p>
-
-        <!-- Baris Status Sistem -->
-        <div class="status-bar">
-            <div class="status-item">
-                <span class="label">STATUS</span>
-                <span class="value active">ONLINE</span>
+    <div class="mafia-container">
+        
+        <!-- HEADER MAFIA SYMBOL -->
+        <header class="mafia-header">
+            <div class="boss-holder">
+                <div class="symbol-avatar">
+                    <!-- Lambang / Logo Mafia (Bukan Orang/Karakter) -->
+                    <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=300&q=80" alt="Syndicate Emblem">
+                </div>
+                <div class="boss-info">
+                    <h1>ROBIN-DV</h1>
+                    <small>SYNDICATE EXECUTIVE DON</small>
+                </div>
             </div>
-            <div class="status-item">
-                <span class="label">PROJECTS</span>
-                <span class="value">READY</span>
+            <div class="syndicate-badge" id="live-clock">00:00:00</div>
+        </header>
+
+        <!-- FITUR 1: TELEMETRI & KAS SINDIKAT -->
+        <div class="mafia-stats">
+            <div class="stat-box">
+                <small>CONTROLLED TERRITORY</small>
+                <span class="text-gold">SECTOR 99 // 100%</span>
+            </div>
+            <div class="stat-box">
+                <small>VAULT ASSETS</small>
+                <span class="text-green">$99.8M ENCRYPTED</span>
             </div>
         </div>
 
-        <!-- Tombol Link Interaktif -->
-        <div class="links-group">
-            <a href="https://robin-dv9999.github.io/Website-Pertama/" class="cyber-btn" target="_blank">
-                <span class="btn-text">🛠️ PANDUAN APA AJA</span>
-                <span class="btn-glitch"></span>
-            </a>
+        <!-- FITUR 2: CENTRAL SYNDICATE COMMAND -->
+        <section class="mafia-card">
+            <div class="card-title">
+                <span>⚡ CENTRAL SYNDICATE COMMAND</span>
+                <span class="badge-sub">LEVEL 5 ACCESS</span>
+            </div>
+            <div class="operation-list">
+                
+                <button onclick="toggleSecret()" class="op-btn">
+                    <span>💼 DOKUMEN & ASET RAHASIA</span>
+                    <span class="arrow" id="toggle-icon">▼</span>
+                </button>
 
-            <a href="#" class="cyber-btn" onclick="showPopup('Python & Web Application Development')">
-                <span class="btn-text">💻 TECH STACK & SKILLS</span>
-                <span class="btn-glitch"></span>
-            </a>
+                <a href="https://robin-dv9999.github.io/Website-Pertama/folder%20baru%201/" class="op-btn">
+                    <span>📜 DOKUMEN MASA LALU (KENANGAN)</span>
+                    <span class="arrow">→</span>
+                </a>
 
-            <a href="https://github.com/robin-dv9999" class="cyber-btn highlight" target="_blank">
-                <span class="btn-text">🚀 GITHUB REPOSITORY</span>
-                <span class="btn-glitch"></span>
-            </a>
-        </div>
+                <a href="https://github.com/Robin-dv9999/Website-Pertama" target="_blank" class="op-btn highlight-btn">
+                    <span>🗝️ VAULT REPOSITORY GITHUB</span>
+                    <span class="arrow">→</span>
+                </a>
 
-        <!-- Footer Terminal -->
-        <footer class="terminal-footer">
-            <p>> System initialized... Ready for action.</p>
+            </div>
+        </section>
+
+        <!-- FITUR 3: PANEL DOKUMEN & ASET RAHASIA (INTERAKTIF) -->
+        <section class="mafia-card secret-panel" id="secret-panel">
+            <div class="card-title">
+                <span>🗄️ ARSIP ASET & LOGISTIK HITAM</span>
+            </div>
+            <div class="secret-grid">
+                <div class="secret-item">
+                    <span class="secret-label">Aset Utama</span>
+                    <span class="secret-val">Gold Vault #9</span>
+                </div>
+                <div class="secret-item">
+                    <span class="secret-label">Keamanan Jalur</span>
+                    <span class="secret-val">Zero Trace Protocol</span>
+                </div>
+                <div class="secret-item">
+                    <span class="secret-label">Tingkat Enkripsi</span>
+                    <span class="secret-val">AES-512 Bit</span>
+                </div>
+                <div class="secret-item">
+                    <span class="secret-label">Komando Tertinggi</span>
+                    <span class="secret-val text-red">Robin-DV</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- FITUR 4: WILAYAH KEKUASAAN (SECTOR TERRITORIES) -->
+        <section class="mafia-card">
+            <div class="card-title">
+                <span>🏙️ WILAYAH KEKUASAAN SINDIKAT</span>
+            </div>
+            <div class="territory-grid">
+                <div class="territory-item">
+                    <div class="t-head">
+                        <span class="t-name">Sektor Utara</span>
+                        <span class="t-status status-active">SECURED</span>
+                    </div>
+                    <small>Pusat Logistik & Keuangan</small>
+                </div>
+                <div class="territory-item">
+                    <div class="t-head">
+                        <span class="t-name">Sektor Barat</span>
+                        <span class="t-status status-active">SECURED</span>
+                    </div>
+                    <small>Jalur Komunikasi Enkripsi</small>
+                </div>
+            </div>
+        </section>
+
+        <!-- FITUR 5: KOMUNIKASI P2P RAHASIA -->
+        <section class="mafia-card">
+            <div class="card-title">
+                <span>📻 SECURE P2P COMMUNICATIONS</span>
+            </div>
+            <div class="comm-box">
+                <div class="comm-line">
+                    <small>ENCRYPTED FREQUENCY:</small>
+                    <code>994.20 MHz [GHOST-NET]</code>
+                </div>
+                <div class="comm-line">
+                    <small>P2P SATELLITE LINK:</small>
+                    <span class="text-green">CONNECTED (0.1ms)</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- FITUR 6: LIVE SYNDICATE TERMINAL LOG -->
+        <section class="mafia-card">
+            <div class="card-title">
+                <span>💻 LIVE SYNDICATE TERMINAL</span>
+            </div>
+            <div class="terminal-box">
+                <p>&gt; Initializing underworld core engine...</p>
+                <p>&gt; Encrypted Node protocol verified.</p>
+                <p>&gt; Authority validated: Executive Don <strong>Robin-DV</strong>.</p>
+                <p>&gt; All network traces cleared successfully.</p>
+            </div>
+        </section>
+
+        <!-- FOOTER BRANDING -->
+        <footer class="mafia-footer">
+            <p>Underworld Protocol Created by <strong>Robin-DV</strong> • Confidential © 2026</p>
         </footer>
-    </main>
+
+    </div>
 
     <script>
-        function showPopup(text) {
-            alert('SYSTEM INFO:\n' + text);
+        // Jam Real-Time
+        function updateClock() {
+            const now = new Date();
+            document.getElementById('live-clock').textContent = now.toTimeString().split(' ')[0];
+        }
+        setInterval(updateClock, 1000);
+        updateClock();
+
+        // Toggle Interaktif Arsip Rahasia
+        function toggleSecret() {
+            const panel = document.getElementById('secret-panel');
+            const icon = document.getElementById('toggle-icon');
+            if (panel.style.display === 'block') {
+                panel.style.display = 'none';
+                icon.textContent = '▼';
+            } else {
+                panel.style.display = 'block';
+                icon.textContent = '▲';
+            }
         }
     </script>
 </body>
-</html>
+                        </html>
+                        

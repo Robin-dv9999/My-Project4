@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AURA // Quantum Calculator</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Garis Neon RGB Pinggiran Layar yang Mengalir Smooth -->
+    <div class="quantum-border-glow"></div>
+    <div class="ambient-blur-bg"></div>
+
+    <div class="calculator-container">
+        <!-- Header Minimalis Elegan -->
+        <header class="app-header">
+            <div class="brand-info">
+                <h1>AURA<span>.QUANTUM</span></h1>
+                <small>Smooth Calculation Engine</small>
+            </div>
+            <div class="status-indicator">
+                <span class="pulse-dot"></span>
+                <span>READY</span>
+            </div>
+        </header>
+
+        <!-- Layar Display Utama -->
+        <div class="quantum-display">
+            <div id="prev-op" class="prev-operand"></div>
+            <div id="curr-op" class="curr-operand">0</div>
+        </div>
+
+        <!-- Tombol Keypad Modern & Fluid -->
+        <div class="quantum-keypad">
+            <button class="q-btn func" onclick="clearAll()">AC</button>
+            <button class="q-btn func" onclick="deleteNumber()">DEL</button>
+            <button class="q-btn operator" onclick="appendOperator('%')">%</button>
+            <button class="q-btn operator" onclick="appendOperator('/')">÷</button>
+
+            <button class="q-btn num" onclick="appendNumber('7')">7</button>
+            <button class="q-btn num" onclick="appendNumber('8')">8</button>
+            <button class="q-btn num" onclick="appendNumber('9')">9</button>
+            <button class="q-btn operator" onclick="appendOperator('*')">×</button>
+
+            <button class="q-btn num" onclick="appendNumber('4')">4</button>
+            <button class="q-btn num" onclick="appendNumber('5')">5</button>
+            <button class="q-btn num" onclick="appendNumber('6')">6</button>
+            <button class="q-btn operator" onclick="appendOperator('-')">-</button>
+
+            <button class="q-btn num" onclick="appendNumber('1')">1</button>
+            <button class="q-btn num" onclick="appendNumber('2')">2</button>
+            <button class="q-btn num" onclick="appendNumber('3')">3</button>
+            <button class="q-btn operator" onclick="appendOperator('+')">+</button>
+
+            <button class="q-btn num span-2" onclick="appendNumber('0')">0</button>
+            <button class="q-btn num" onclick="appendNumber('.')">.</button>
+            <button class="q-btn equal" onclick="computeResult()">=</button>
+        </div>
+
+        <!-- Panel Riwayat Perhitungan Halus -->
+        <div class="history-panel">
+            <div class="history-header">
+                <span>📜 Riwayat Perhitungan</span>
+                <button class="clear-history-btn" onclick="clearHistory()">Bersihkan</button>
+            </div>
+            <div class="history-scroll" id="history-scroll">
+                <div class="history-placeholder">Belum ada riwayat aktivitas</div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="app-footer">
+            <span>Robin DV Workspace</span>
+            <a href="https://github.com/robin-dv9999" target="_blank">GitHub Vault ↗</a>
+        </footer>
+    </div>
+
+    <script>
+        let currentVal = '0';
+        let previousVal = '';
+        let currentOp = null;
+        let historyList = [];
+
+        const currElement = document.getElementById('curr-op');
+        const prevElement = document.getElementById('prev-op');
+        const historyContainer = document.getElementById('history-scroll');
+
+        function updateScreen() {
+            currElement.textContent = currentVal;
+            if (currentOp !== null) {
+                prevElement.textContent = `${previousVal} ${currentOp}`;
+            } else {
+                prevElement.textContent = '';
+            }
+        }
+
+        function clearAll() {
+            currentVal = '0';
+            previousVal = '';
+            currentOp = null;
+            updateScreen();
+        }
+
+        function deleteNumber() {
+            if (currentVal.length === 1) {
+                currentVal = '0';
+            } else {
+                currentVal = currentVal.slice(0, -1);
+            }
+            updateScreen();
+        }
+
+        function appendNumber(num) {
+            if (num === '.' && currentVal.includes('.')) return;
+            if (currentVal === '0' && num !== '.') {
+                currentVal = num;
+            } else {
+                currentVal += num;
+            }
+            updateScreen();
+        }
+
+        function appendOperator(op) {
+            if (currentVal === '') return;
+            if (previousVal !== '') {
+                computeResult();
+            }
+            currentOp = op;
+            previousVal = currentVal;
+            currentVal = '';
+            updateScreen();
+        }
+
+        function computeResult() {
+            let calculation;
+            const prev = parseFloat(previousVal);
+            const curr = parseFloat(currentVal);
+            if (isNaN(prev) || isNaN(curr)) return;
+
+            const fullExpression = `${previousVal} ${currentOp} ${currentVal}`;
+
+            switch (currentOp) {
+                case '+': calculation = prev + curr; break;
+                case '-': calculation = prev - curr; break;
+                case '*': calculation = prev * curr; break;
+                case '/': calculation = curr === 0 ? 'Error' : prev / curr; break;
+                case '%': calculation = prev % curr; break;
+                default: return;
+            }
+
+            pushHistory(`${fullExpression} = ${calculation}`);
+
+            currentVal = calculation.toString();
+            currentOp = null;
+            previousVal = '';
+            updateScreen();
+        }
+
+        function pushHistory(text) {
+            historyList.unshift(text);
+            if (historyList.length > 5) historyList.pop();
+
+            let htmlContent = '';
+            historyList.forEach(item => {
+                htmlContent += `<div class="history-item">${item}</div>`;
+            });
+            historyContainer.innerHTML = htmlContent;
+        }
+
+        function clearHistory() {
+            historyList = [];
+            historyContainer.innerHTML = `<div class="history-placeholder">Belum ada riwayat aktivitas</div>`;
+        }
+
+        updateScreen();
+    </script>
+</body>
+</html>

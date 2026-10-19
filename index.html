@@ -3,281 +3,280 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Underworld Syndicate // Robin-DV</title>
+    <title>Cyber Vault Store // Robin-DV</title>
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800;900&family=Plus+Jakarta+Sans:wght@400;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <div class="mafia-container">
+    <div class="store-container">
         
-        <!-- HEADER MAFIA SYMBOL -->
-        <header class="mafia-header">
-            <div class="boss-holder">
-                <div class="symbol-avatar">
-                    <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=300&q=80" alt="Syndicate Emblem">
+        <!-- HEADER STORE -->
+        <header class="store-header">
+            <div class="brand-holder">
+                <div class="store-logo">
+                    <span>⚡</span>
                 </div>
-                <div class="boss-info">
-                    <h1>ROBIN-DV</h1>
-                    <small>SYNDICATE EXECUTIVE DON</small>
+                <div>
+                    <h1>CYBER VAULT</h1>
+                    <small>Official Store by <strong>Robin-DV</strong></small>
                 </div>
             </div>
-            <div class="syndicate-badge" id="live-clock">00:00:00</div>
+            <button class="cart-badge-btn" onclick="openCart()">
+                🛒 <span id="cart-count">0</span>
+            </button>
         </header>
 
-        <!-- STATS & VAULT ASSETS -->
-        <div class="mafia-stats">
-            <div class="stat-box">
-                <small>CONTROLLED TERRITORY</small>
-                <span class="text-gold">SECTOR 99 // 100%</span>
-            </div>
-            <div class="stat-box">
-                <small>VAULT ASSETS</small>
-                <span class="text-green">$99.8M ENCRYPTED</span>
-            </div>
+        <!-- FLASH SALE COUNTDOWN -->
+        <div class="flash-sale-bar">
+            <span>🔥 FLASH SALE ENDS IN:</span>
+            <span class="countdown-timer" id="countdown">02:45:12</span>
         </div>
 
-        <!-- CENTRAL SYNDICATE COMMAND (MENU UTAMA SEPERTI DI GAMBAR) -->
-        <section class="mafia-card">
-            <div class="card-title">
-                <span>⚡ CENTRAL SYNDICATE COMMAND</span>
-                <span class="badge-sub">LEVEL 5 ACCESS</span>
-            </div>
-            <div class="operation-list">
-                
-                <!-- TOMBOL 1: Dokumen & Aset Rahasia -->
-                <button onclick="toggleSection('secret-panel')" class="op-btn">
-                    <span>💼 DOKUMEN & ASET RAHASIA</span>
-                    <span class="arrow" id="icon-secret">▼</span>
-                </button>
-
-                <!-- TOMBOL 2: DOKUMEN MASA LALU (LANGSUNG MEMBUKA WEBSITE CYBER VAULT) -->
-                <button onclick="toggleStore()" class="op-btn highlight-btn">
-                    <span>📜 DOKUMEN MASA LALU (CYBER VAULT)</span>
-                    <span class="arrow" id="toggle-icon">▼</span>
-                </button>
-
-                <!-- TOMBOL 3: GitHub -->
-                <a href="https://github.com/Robin-dv9999/Website-Pertama" target="_blank" class="op-btn">
-                    <span>🗝️ VAULT REPOSITORY GITHUB</span>
-                    <span class="arrow">→</span>
-                </a>
-
-            </div>
-        </section>
-
-        <!-- PANEL DOKUMEN & ASET RAHASIA (OPSIONAL) -->
-        <section class="mafia-card secret-panel" id="secret-panel" style="display:none;">
-            <div class="card-title">
-                <span>🗄️ INFORMASI JARINGAN SIBER</span>
-            </div>
-            <div class="secret-grid">
-                <div class="secret-item">
-                    <span class="secret-label">Aset Utama</span>
-                    <span class="secret-val">Gold Vault #9</span>
-                </div>
-                <div class="secret-item">
-                    <span class="secret-label">Keamanan Jalur</span>
-                    <span class="secret-val">Zero Trace</span>
-                </div>
-            </div>
-        </section>
-
-        <!-- WEBSITE CYBER VAULT (LANGSUNG MUNCUL PAS TOMBOL DOKUMEN MASA LALU DIKLIK) -->
-        <section class="store-panel" id="store-panel">
+        <!-- SEARCH & CATEGORY FILTER -->
+        <section class="search-filter-card">
+            <input type="text" id="search-input" placeholder="🔍 Cari nama barang..." onkeyup="filterProducts()">
             
-            <div class="store-header-mini">
-                <div class="brand-holder">
-                    <div class="store-logo">
-                        <span>⚡</span>
-                    </div>
-                    <div>
-                        <h2>CYBER VAULT</h2>
-                        <small>Official Store by <strong>Robin-DV</strong></small>
-                    </div>
-                </div>
-                <button class="cart-btn" onclick="openCart()">
-                    🛒 <span id="cart-count">0</span>
-                </button>
+            <div class="category-pills">
+                <button class="pill active" onclick="filterCategory('all', this)">Semua</button>
+                <button class="pill" onclick="filterCategory('gadget', this)">Gadget</button>
+                <button class="pill" onclick="filterCategory('wearable', this)">Wearable</button>
+                <button class="pill" onclick="filterCategory('acc', this)">Aksesori</button>
             </div>
-
-            <div class="flash-sale-bar">
-                <span>🔥 FLASH SALE ENDS IN:</span>
-                <span class="countdown-timer">02:45:12</span>
-            </div>
-
-            <div class="search-box">
-                <input type="text" id="search-input" placeholder="🔍 Cari nama barang..." onkeyup="filterProducts()">
-                <div class="category-pills">
-                    <button class="pill active" onclick="filterCategory('all', this)">Semua</button>
-                    <button class="pill" onclick="filterCategory('gadget', this)">Gadget</button>
-                    <button class="pill" onclick="filterCategory('wearable', this)">Wearable</button>
-                    <button class="pill" onclick="filterCategory('acc', this)">Aksesori</button>
-                </div>
-            </div>
-
-            <div class="store-card-wrap">
-                <div class="card-title">
-                    <span>📦 KATALOG PRODUK</span>
-                    <span class="text-red" id="product-count">4 Barang</span>
-                </div>
-
-                <div class="product-grid-multi">
-                    
-                    <div class="product-card" data-category="gadget" data-name="cyber headset v1">
-                        <div class="product-img">
-                            <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=400&q=80" alt="Headset">
-                            <span class="price-tag">Rp 750.000</span>
-                        </div>
-                        <div class="product-info">
-                            <h3>Cyber Headset V1</h3>
-                            <div class="rating">⭐ 4.9 (120 ulasan)</div>
-                            <button class="btn-buy" onclick="addToCart('Cyber Headset V1', 750000)">+ Keranjang</button>
-                        </div>
-                    </div>
-
-                    <div class="product-card" data-category="wearable" data-name="tactical watch v2">
-                        <div class="product-img">
-                            <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=400&q=80" alt="Watch">
-                            <span class="price-tag">Rp 1.200.000</span>
-                        </div>
-                        <div class="product-info">
-                            <h3>Tactical Watch V2</h3>
-                            <div class="rating">⭐ 5.0 (98 ulasan)</div>
-                            <button class="btn-buy" onclick="addToCart('Tactical Watch V2', 1200000)">+ Keranjang</button>
-                        </div>
-                    </div>
-
-                    <div class="product-card" data-category="gadget" data-name="cyber laptop v3">
-                        <div class="product-img">
-                            <img src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?auto=format&fit=crop&w=400&q=80" alt="Laptop">
-                            <span class="price-tag">Rp 8.500.000</span>
-                        </div>
-                        <div class="product-info">
-                            <h3>Cyber Laptop V3</h3>
-                            <div class="rating">⭐ 4.8 (210 ulasan)</div>
-                            <button class="btn-buy" onclick="addToCart('Cyber Laptop V3', 8500000)">+ Keranjang</button>
-                        </div>
-                    </div>
-
-                    <div class="product-card" data-category="acc" data-name="precision mouse">
-                        <div class="product-img">
-                            <img src="https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?auto=format&fit=crop&w=400&q=80" alt="Mouse">
-                            <span class="price-tag">Rp 450.000</span>
-                        </div>
-                        <div class="product-info">
-                            <h3>Precision Mouse</h3>
-                            <div class="rating">⭐ 4.9 (150 ulasan)</div>
-                            <button class="btn-buy" onclick="addToCart('Precision Mouse', 450000)">+ Keranjang</button>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-
-            <div class="checkout-box">
-                <button class="btn-whatsapp" onclick="openCart()">
-                    📲 Lihat Keranjang & Pesan via WhatsApp
-                </button>
-            </div>
-
         </section>
 
-        <!-- WILAYAH KEKUASAAN -->
-        <section class="mafia-card">
-            <div class="card-title">
-                <span>🏙️ WILAYAH KEKUASAAN SINDIKAT</span>
+        <!-- DAFTAR KATALOG PRODUK -->
+        <section class="products-section">
+            <div class="section-title">
+                <span>📦 KATALOG PRODUK</span>
+                <small id="product-count">6 Barang</small>
             </div>
-            <div class="territory-grid">
-                <div class="territory-item">
-                    <div class="t-head">
-                        <span class="t-name">Sektor Utara</span>
-                        <span class="t-status status-active">SECURED</span>
+
+            <div class="product-grid-multi" id="product-list">
+                
+                <!-- PRODUK 1 -->
+                <div class="product-card" data-category="gadget" data-name="cyber headset v1">
+                    <div class="product-img">
+                        <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=400&q=80" alt="Cyber Headset">
+                        <span class="price-tag">Rp 750.000</span>
                     </div>
-                    <small>Pusat Logistik & Keuangan</small>
+                    <div class="product-info">
+                        <h3>Cyber Headset V1</h3>
+                        <div class="rating">⭐ 4.9 (120 ulasan)</div>
+                        <button class="btn-buy" onclick="addToCart('Cyber Headset V1', 750000)">+ Keranjang</button>
+                    </div>
+                </div>
+
+                <!-- PRODUK 2 -->
+                <div class="product-card" data-category="wearable" data-name="tactical watch v2">
+                    <div class="product-img">
+                        <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=400&q=80" alt="Tactical Watch">
+                        <span class="price-tag">Rp 1.200.000</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>Tactical Watch V2</h3>
+                        <div class="rating">⭐ 5.0 (98 ulasan)</div>
+                        <button class="btn-buy" onclick="addToCart('Tactical Watch V2', 1200000)">+ Keranjang</button>
+                    </div>
+                </div>
+
+                <!-- PRODUK 3 -->
+                <div class="product-card" data-category="gadget" data-name="rgb mechanical keyboard">
+                    <div class="product-img">
+                        <img src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?auto=format&fit=crop&w=400&q=80" alt="RGB Keyboard">
+                        <span class="price-tag">Rp 850.000</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>RGB Keyboard</h3>
+                        <div class="rating">⭐ 4.8 (210 ulasan)</div>
+                        <button class="btn-buy" onclick="addToCart('RGB Keyboard', 850000)">+ Keranjang</button>
+                    </div>
+                </div>
+
+                <!-- PRODUK 4 -->
+                <div class="product-card" data-category="acc" data-name="precision gaming mouse">
+                    <div class="product-img">
+                        <img src="https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?auto=format&fit=crop&w=400&q=80" alt="Gaming Mouse">
+                        <span class="price-tag">Rp 450.000</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>Precision Mouse</h3>
+                        <div class="rating">⭐ 4.9 (150 ulasan)</div>
+                        <button class="btn-buy" onclick="addToCart('Precision Mouse', 450000)">+ Keranjang</button>
+                    </div>
+                </div>
+
+                <!-- PRODUK 5 -->
+                <div class="product-card" data-category="wearable" data-name="dark pods pro">
+                    <div class="product-img">
+                        <img src="https://images.unsplash.com/photo-1546435770-a3e426bf472b?auto=format&fit=crop&w=400&q=80" alt="Wireless Pods">
+                        <span class="price-tag">Rp 650.000</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>Dark Pods Pro</h3>
+                        <div class="rating">⭐ 4.7 (85 ulasan)</div>
+                        <button class="btn-buy" onclick="addToCart('Dark Pods Pro', 650000)">+ Keranjang</button>
+                    </div>
+                </div>
+
+                <!-- PRODUK 6 -->
+                <div class="product-card" data-category="acc" data-name="cyber visor frame">
+                    <div class="product-img">
+                        <img src="https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?auto=format&fit=crop&w=400&q=80" alt="Cyber Visor">
+                        <span class="price-tag">Rp 350.000</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>Cyber Visor Frame</h3>
+                        <div class="rating">⭐ 4.9 (60 ulasan)</div>
+                        <button class="btn-buy" onclick="addToCart('Cyber Visor Frame', 350000)">+ Keranjang</button>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- KODE DISKON / VOUCHER -->
+        <section class="voucher-card">
+            <div class="section-title">
+                <span>🎟️ VOUCHER PROMO</span>
+            </div>
+            <div class="voucher-box">
+                <input type="text" id="voucher-input" placeholder="Kode Diskon (e.g. ROBIN10)">
+                <button onclick="applyVoucher()">Klaim</button>
+            </div>
+            <small id="voucher-msg"></small>
+        </section>
+
+        <!-- TESTIMONI PELANGGAN -->
+        <section class="reviews-section">
+            <div class="section-title">
+                <span>💬 ULASAN PEMBELI</span>
+            </div>
+            <div class="reviews-list">
+                <div class="review-item">
+                    <div class="review-header">
+                        <strong>Alex K.</strong>
+                        <span class="stars">⭐⭐⭐⭐⭐</span>
+                    </div>
+                    <p>"Barang sampai cepat, packing aman banget. Kualitas Headset Cyber jempolan!"</p>
+                </div>
+                <div class="review-item">
+                    <div class="review-header">
+                        <strong>Budi S.</strong>
+                        <span class="stars">⭐⭐⭐⭐⭐</span>
+                    </div>
+                    <p>"Admin Robin-DV ramah banget, jam tangannya pas dipakai kelihatan keren!"</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ ACCORDION -->
+        <section class="faq-section">
+            <div class="section-title">
+                <span>❓ PERTANYAAN UMUM (FAQ)</span>
+            </div>
+            
+            <div class="faq-item" onclick="toggleFaq(this)">
+                <div class="faq-question">
+                    <span>Bagaimana cara pemesanannya?</span>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    Pilih barang yang disukai, masukkan ke keranjang, lalu klik checkout untuk terhubung langsung ke WhatsApp admin Robin-DV.
+                </div>
+            </div>
+
+            <div class="faq-item" onclick="toggleFaq(this)">
+                <div class="faq-question">
+                    <span>Apakah ada garansi resmi?</span>
+                    <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    Semua produk resmi bergaransi 1:1 replacement selama 30 hari jika terjadi kerusakan pabrik.
                 </div>
             </div>
         </section>
 
         <!-- FOOTER -->
-        <footer class="mafia-footer">
-            <p>Underworld Protocol Created by <strong>Robin-DV</strong> • Confidential © 2026</p>
+        <footer class="store-footer">
+            <p>Cyber Vault Store Created by <strong>Robin-DV</strong> • All Rights Reserved © 2026</p>
         </footer>
 
     </div>
 
-    <!-- MODAL KERANJANG -->
+    <!-- MODAL KERANJANG BELANJA -->
     <div class="cart-modal-overlay" id="cart-modal">
         <div class="cart-modal">
             <div class="cart-header">
                 <h3>🛒 Keranjang Belanja</h3>
                 <button class="close-btn" onclick="closeCart()">✕</button>
             </div>
+            
             <div class="cart-items-list" id="cart-items">
                 <p class="empty-msg">Keranjang kamu masih kosong.</p>
             </div>
+
             <div class="cart-footer">
                 <div class="cart-total-row">
-                    <span>Total Bayar:</span>
-                    <span id="cart-total" class="text-gold">Rp 0</span>
+                    <span>Subtotal:</span>
+                    <span id="cart-subtotal">Rp 0</span>
                 </div>
+                <div class="cart-total-row discount-row" id="discount-row" style="display:none;">
+                    <span>Diskon (<span id="discount-percent">0</span>%):</span>
+                    <span id="cart-discount">-Rp 0</span>
+                </div>
+                <div class="cart-total-row final-total">
+                    <span>Total Bayar:</span>
+                    <span id="cart-total">Rp 0</span>
+                </div>
+
                 <button class="btn-whatsapp-checkout" onclick="checkoutWA()">
-                    📲 Kirim Pesanan ke WhatsApp
+                    📲 Checkout via WhatsApp
                 </button>
             </div>
         </div>
     </div>
 
+    <!-- TOAST NOTIFIKASI TRANSAKSI -->
     <div class="toast-notif" id="toast-notif">
-        <span>⚡ Pesanan ditambahkan!</span>
+        <span>⚡ Syahrul baru saja membeli <strong>Tactical Watch V2</strong></span>
     </div>
 
     <script>
-        function updateClock() {
-            const now = new Date();
-            document.getElementById('live-clock').textContent = now.toTimeString().split(' ')[0];
-        }
-        setInterval(updateClock, 1000);
-        updateClock();
-
-        function toggleSection(id) {
-            const panel = document.getElementById(id);
-            panel.style.display = panel.style.display === 'block' ? 'none' : 'block';
-        }
-
-        function toggleStore() {
-            const panel = document.getElementById('store-panel');
-            const icon = document.getElementById('toggle-icon');
-            if (panel.style.display === 'flex') {
-                panel.style.display = 'none';
-                icon.textContent = '▼';
-            } else {
-                panel.style.display = 'flex';
-                icon.textContent = '▲';
-                panel.scrollIntoView({ behavior: 'smooth' });
-            }
-        }
-
+        // State Keranjang
         let cart = [];
+        let discountPercent = 0;
+
         function addToCart(name, price) {
-            const existing = cart.find(item => item.name === name);
-            if (existing) { existing.qty += 1; } else { cart.push({ name, price, qty: 1 }); }
+            const existingIndex = cart.findIndex(item => item.name === name);
+            if (existingIndex > -1) {
+                cart[existingIndex].qty += 1;
+            } else {
+                cart.push({ name, price, qty: 1 });
+            }
             updateCartUI();
-            showToast('Ditambahkan: "' + name + '"');
+            showToast('Berhasil menambahkan "' + name + '" ke keranjang!');
         }
 
         function changeQty(index, delta) {
             cart[index].qty += delta;
-            if (cart[index].qty <= 0) { cart.splice(index, 1); }
+            if (cart[index].qty <= 0) {
+                cart.splice(index, 1);
+            }
             updateCartUI();
         }
 
         function updateCartUI() {
             const countEl = document.getElementById('cart-count');
             const itemsEl = document.getElementById('cart-items');
+            const subtotalEl = document.getElementById('cart-subtotal');
+            const discountRow = document.getElementById('discount-row');
+            const discountEl = document.getElementById('cart-discount');
             const totalEl = document.getElementById('cart-total');
-            let totalQty = 0, subtotal = 0;
+
+            let totalQty = 0;
+            let subtotal = 0;
 
             if (cart.length === 0) {
                 itemsEl.innerHTML = '<p class="empty-msg">Keranjang kamu masih kosong.</p>';
@@ -286,6 +285,7 @@
                 cart.forEach((item, index) => {
                     totalQty += item.qty;
                     subtotal += item.price * item.qty;
+
                     itemsEl.innerHTML += `
                         <div class="cart-item">
                             <div class="cart-item-info">
@@ -301,9 +301,145 @@
                     `;
                 });
             }
+
             countEl.textContent = totalQty;
-            totalEl.textContent = 'Rp ' + subtotal.toLocaleString('id-ID');
+            subtotalEl.textContent = 'Rp ' + subtotal.toLocaleString('id-ID');
+
+            let discountVal = (subtotal * discountPercent) / 100;
+            let finalTotal = subtotal - discountVal;
+
+            if (discountPercent > 0) {
+                discountRow.style.display = 'flex';
+                document.getElementById('discount-percent').textContent = discountPercent;
+                discountEl.textContent = '-Rp ' + discountVal.toLocaleString('id-ID');
+            } else {
+                discountRow.style.display = 'none';
+            }
+
+            totalEl.textContent = 'Rp ' + finalTotal.toLocaleString('id-ID');
         }
 
+        function openCart() {
+            document.getElementById('cart-modal').style.display = 'flex';
+        }
 
-    
+        function closeCart() {
+            document.getElementById('cart-modal').style.display = 'none';
+        }
+
+        // Search Filter
+        function filterProducts() {
+            const input = document.getElementById('search-input').value.toLowerCase();
+            const cards = document.querySelectorAll('.product-card');
+            let visibleCount = 0;
+
+            cards.forEach(card => {
+                const name = card.getAttribute('data-name');
+                if (name.includes(input)) {
+                    card.style.display = 'flex';
+                    visibleCount++;
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+
+            document.getElementById('product-count').textContent = visibleCount + ' Barang';
+        }
+
+        // Category Filter
+        function filterCategory(cat, btn) {
+            document.querySelectorAll('.pill').forEach(p => p.classList.remove('active'));
+            btn.classList.add('active');
+
+            const cards = document.querySelectorAll('.product-card');
+            let visibleCount = 0;
+
+            cards.forEach(card => {
+                const itemCat = card.getAttribute('data-category');
+                if (cat === 'all' || itemCat === cat) {
+                    card.style.display = 'flex';
+                    visibleCount++;
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+
+            document.getElementById('product-count').textContent = visibleCount + ' Barang';
+        }
+
+        // Voucher
+        function applyVoucher() {
+            const val = document.getElementById('voucher-input').value.trim().toUpperCase();
+            const msg = document.getElementById('voucher-msg');
+
+            if (val === 'ROBIN10' || val === 'CYBERVIP') {
+                discountPercent = 10;
+                msg.style.color = '#10b981';
+                msg.textContent = 'Voucher berhasil terpasang! Diskon 10%';
+            } else {
+                discountPercent = 0;
+                msg.style.color = '#ef4444';
+                msg.textContent = 'Kode voucher tidak valid!';
+            }
+            updateCartUI();
+        }
+
+        // FAQ Toggle
+        function toggleFaq(element) {
+            element.classList.toggle('open');
+            const icon = element.querySelector('.faq-icon');
+            icon.textContent = element.classList.contains('open') ? '−' : '+';
+        }
+
+        // Checkout WA
+        function checkoutWA() {
+            if (cart.length === 0) {
+                alert('Keranjang kamu masih kosong!');
+                return;
+            }
+
+            let text = 'Halo Admin Robin-DV, saya mau pesan barang berikut:\n\n';
+            let subtotal = 0;
+
+            cart.forEach((item, i) => {
+                let itemTotal = item.price * item.qty;
+                subtotal += itemTotal;
+                text += `${i + 1}. ${item.name} x${item.qty} = Rp ${itemTotal.toLocaleString('id-ID')}\n`;
+            });
+
+            let discountVal = (subtotal * discountPercent) / 100;
+            let finalTotal = subtotal - discountVal;
+
+            if (discountPercent > 0) {
+                text += `\nDiskon (${discountPercent}%): -Rp ${discountVal.toLocaleString('id-ID')}`;
+            }
+
+            text += `\n*Total Pembayaran: Rp ${finalTotal.toLocaleString('id-ID')}*\n\nMohon diproses, terima kasih!`;
+
+            const encoded = encodeURIComponent(text);
+            window.open(`https://wa.me/6280000000000?text=${encoded}`, '_blank');
+        }
+
+        // Toast Notification
+        function showToast(text) {
+            const toast = document.getElementById('toast-notif');
+            toast.innerHTML = `<span>${text}</span>`;
+            toast.classList.add('show');
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        }
+
+        // Random Live Buyer Toast Simulation
+        const sampleBuyers = ['Rian', 'Dimas', 'Fahri', 'Bayu', 'Eko'];
+        const sampleItems = ['Cyber Headset V1', 'Tactical Watch V2', 'RGB Keyboard', 'Dark Pods Pro'];
+
+        setInterval(() => {
+            const b = sampleBuyers[Math.floor(Math.random() * sampleBuyers.length)];
+            const i = sampleItems[Math.floor(Math.random() * sampleItems.length)];
+            showToast(`⚡ <strong>${b}</strong> baru saja membeli <strong>${i}</strong>`);
+        }, 12000);
+    </script>
+</body>
+    </html>
+            
